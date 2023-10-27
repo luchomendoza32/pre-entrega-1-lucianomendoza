@@ -1,19 +1,36 @@
-function calcularCuotas(monto, cuotas) {
-    const montoPorCuota = monto / cuotas;
-    return montoPorCuota;
+alert('Bienvenido a Mardel Air')
+
+const costoPorDia = 1500;
+
+let viaje = []
+
+function solicitarDestino(){
+
+    let destino = "Elegi el destino a viajar: \n1. Santa Fe \n2. Salta \n3. Tierra del fuego";
+
+    let solicitudDestino = Number(prompt(destino));
+
+    return solicitudDestino;
+
 }
 
-const montoTotal = parseFloat(prompt("Ingrese el monto total:"));
-const numeroDeCuotas = parseInt(prompt("Ingrese el número de cuotas:"));
+function solicitarEstadia() {
 
+    let estadia = parseInt(prompt("Ingrese la cantidad de días:"));
 
-if (isNaN(montoTotal)  || isNaN(numeroDeCuotas)) {
-
-    alert("Por favor, ingrese valores válidos.");
-   
-} else {
-    const montoPorCuota = calcularCuotas(montoTotal, numeroDeCuotas);
-
-    alert(`Monto por Cuota: ${montoPorCuota}`);
+    return parseInt(estadia);
 }
 
+
+function reservarViaje(){
+
+    let destino = solicitarDestino();
+    let dias = solicitarEstadia();
+
+    let total = costoPorDia * dias;
+
+    alert('Resumen de la reserva: \nDestino:' + destino, '\nDias de estadía:' + dias, '\nTotal a pagar: $' + total);
+
+}
+
+reservarViaje();
